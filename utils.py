@@ -5,6 +5,7 @@ def import_libraries():
     import plotly.graph_objects as go
 
     from statsmodels.tsa.seasonal import seasonal_decompose
+    from scipy import stats
 
     # Para machine learning
     from sklearn.preprocessing import MinMaxScaler
@@ -15,10 +16,10 @@ def import_libraries():
     warnings.filterwarnings('ignore')
 
     # Retorna as bibliotecas importadas para serem acessíveis no notebook
-    return pd, np, plt, go, seasonal_decompose, MinMaxScaler, mean_squared_error, train_test_split, warnings
+    return pd, np, plt, go, seasonal_decompose, MinMaxScaler, mean_squared_error, train_test_split, warnings, stats
 
 def preparing_df():
-    pd, _, _, _, _, _, _, _, _ = import_libraries()
+    pd, _, _, _, _, _, _, _, _, _ = import_libraries()
     df = pd.read_csv('./Ibovespa.csv')
     df['Data'] = df['Data'].str.replace('.', '-')
     df['Data'] = pd.to_datetime(df['Data'], format='%d-%m-%Y')
