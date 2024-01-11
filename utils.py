@@ -25,6 +25,6 @@ def preparing_df():
     df['Data'] = pd.to_datetime(df['Data'], format='%d-%m-%Y')
     df = df[['Data', 'Último']]
     df.columns = ['ds', 'y']
-    df.sort_values(by='ds', ascending=False, inplace=True)
+    df.sort_values(by='ds', ascending=True, inplace=True)
     df.set_index('ds', inplace=True)
     return df
