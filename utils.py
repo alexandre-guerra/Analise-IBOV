@@ -57,3 +57,14 @@ def test_stationarity(timeseries):
         print('Conclusão: A série é Estacionária.')
     else:
         print('Conclusão: A série NÂO é Estacionária.')
+
+def convert_volume(vol_str):
+    import pandas as pd
+    if pd.isna(vol_str):
+        return None
+    if 'M' in vol_str:
+        return float(vol_str.replace('M', '').replace(',', '.')) * 1e6
+    elif 'K' in vol_str:
+        return float(vol_str.replace('K', '').replace(',', '.')) * 1e3
+    else:        
+        return float(vol_str.replace(',', '.'))
