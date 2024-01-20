@@ -33,7 +33,9 @@ def preparing_df():
 
 
 def test_stationarity(timeseries):
-    pd, _, plt, _, _, _, _, _, _, _, adfuller = import_libraries()
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    from statsmodels.tsa.stattools import adfuller
 
     movingAverage = timeseries.rolling(window=12).mean()
     movingSTD = timeseries.rolling(window=12).std()
@@ -47,7 +49,7 @@ def test_stationarity(timeseries):
     plt.show(block=False)
 
     print('Results of Dickey Fuller Test:')
-    dftest = adfuller(timeseries['y'], autolag='AIC')
+    dftest = adfuller(timeseries['Y'], autolag='AIC')
     dfoutput = pd.Series(dftest[0:4], index=['Test Statistic','p-value','#Lags Used','Number of Observations Used'])
     for key,value in dftest[4].items():
         dfoutput['Critical Value (%s)'%key] = value
