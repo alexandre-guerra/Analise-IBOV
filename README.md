@@ -2,6 +2,8 @@
 
 **Instituição:** FIAP - Turma 2DTAT
 
+![](https://github.com/alexandre-guerra/Analise-IBOV/blob/master/imagem_tech.png)
+
 ## POSTECH FIAP - Fase 2 - Machine Learning and Time Series
 
 ### Título
